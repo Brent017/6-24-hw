@@ -147,10 +147,18 @@ const bondFilms = [
   { "title" : "License to Kill", "year" : 1989, "actor" : "Timothy Dalton", "gross" : "$285,157,191" }
 ];
 
-const bondTitles = [];
+// const bondTitles = [];
+// for (let key in bondFilms) {
+// 		bondTitles.push(bondFilms[key].title);
+// };
+// console.log(bondTitles);
+
+const oddBonds = [];
 for (let key in bondFilms) {
-		bondTitles.push(bondFilms[key].title);
+	if (bondFilms[key].year % 2 !== 0) {
+		oddBonds.push(bondFilms[key]);
+	}
 };
-console.log(bondTitles);
+console.log(oddBonds);
 // bond question loop over the string and remove anything that is not a number, numbers go into an array, else goes into a junk array
 
