@@ -153,12 +153,42 @@ const bondFilms = [
 // };
 // console.log(bondTitles);
 
-const oddBonds = [];
-for (let key in bondFilms) {
-	if (bondFilms[key].year % 2 !== 0) {
-		oddBonds.push(bondFilms[key]);
-	}
+// const oddBonds = [];
+// for (let key in bondFilms) {
+// 	if (bondFilms[key].year % 2 !== 0) {
+// 		oddBonds.push(bondFilms[key]);
+// 	}
+// };
+// console.log(oddBonds);
+
+// 7. Determine the total cumulative gross of the Bond franchise, and console.log the result.
+
+const strIsNum = (str) => {
+	const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+	for (let i = 0; i < numbers.length; i++) {
+		if (str === numbers[i]){
+			return true;
+		}
+	} 
+	return false;
+}
+
+const bondParser = (string) => {
+	let grossNumber = "";
+	for (let i = 0; i < string.length; i++) {
+		if(strIsNum(string[i])) {
+			grossNumber += string[i];
+		}
+		}
+	grossNumber = parseInt(grossNumber);
+	return grossNumber;
 };
-console.log(oddBonds);
-// bond question loop over the string and remove anything that is not a number, numbers go into an array, else goes into a junk array
+
+let sum = 0;
+for (let i = 0; i < bondFilms.length; i++) {
+	sum += bondParser(bondFilms[i].gross);
+}
+
+console.log(sum);
+
 
